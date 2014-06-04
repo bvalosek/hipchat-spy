@@ -4,6 +4,9 @@
 
 Express middleware for monitoring activity in HipChat.
 
+Automatically setup webhooks to listen for activity via a simple `EventEmitter`
+interface.
+
 ## Installation
 
 ```
@@ -29,7 +32,15 @@ Create a new spy middleware by passing in your HipChat API key and the full
 var spy = hipchatSpy('your-api-key', 'http://myapp.com/webhooks');
 ```
 
-Have the spy listen in on a few rooms and respond to events (see [HipChat
+Mount the middleware in our express app under the URL prefix that matches with
+the URL we gave our spy factory above:
+
+```javascript
+app.use('/webhooks', spy);
+```
+
+The spy has an `emitter` property that is an `EventEmitter` instance. Have the
+spy listen in on a few rooms and respond to events (see [HipChat
 docs](https://www.hipchat.com/docs/apiv2/webhooks) for all events):
 
 ```javascript
@@ -44,13 +55,6 @@ spy.emitter.on('room_message', function(message) {
 spy.emitter.on('room_exit', function(info) {
   console.log(info);
 });
-```
-
-Mount the middleware in our express app under the URL prefix that matches with
-the URL we gave our spy factory above:
-
-```javascript
-app.use('/webhooks', spy);
 ```
 
 ## License
