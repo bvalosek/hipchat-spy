@@ -1,0 +1,30 @@
+{
+  "name": "hipchat-spy",
+  "version": "0.1.0",
+  "description": "Express middleware for monitoring activity in HipChat",
+  "keywords": [
+    "hipchat",
+    "chat",
+    "chatbot",
+    "atlassian",
+    "express",
+    "middleware"
+  ],
+  "author": {
+    "name": "Brandon Valosek",
+    "email": "bvalosek@gmail.com",
+    "url": "http://bvalosek.com"
+  },
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bvalosek/hipchat-spy.git"
+  },
+  "dependencies": {
+    "debug": "^0.8.1",
+    "es6-promise": "^1.0.0",
+    "express": "^4.4.1",
+    "hipchatter": "^0.1.3"
+  }
+}
