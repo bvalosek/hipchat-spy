@@ -15,14 +15,16 @@ $ npm install hipchat-spy
 
 ## Usage
 
-Create an express app:
+Create an express app and ensure you're using the [body parser
+middleware](https://github.com/expressjs/body-parser):
 
 ```javascript
 var express    = require('express');
+var bodyParser = require('body-parser')
 var hipchatSpy = require('hipchat-spy');
 
 var app = express();
-
+app.use(bodyParser());
 ```
 
 Create a new spy middleware by passing in your HipChat API key and the full
